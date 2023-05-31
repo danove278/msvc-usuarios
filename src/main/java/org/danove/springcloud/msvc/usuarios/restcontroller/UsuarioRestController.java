@@ -3,6 +3,9 @@ package org.danove.springcloud.msvc.usuarios.restcontroller;
 import jakarta.validation.Valid;
 import org.danove.springcloud.msvc.usuarios.Services.IEntityService;
 import org.danove.springcloud.msvc.usuarios.models.entity.Usuario;
+import org.slf4j.ILoggerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.domain.Page;
@@ -19,6 +22,8 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping
 public class UsuarioRestController<E extends Usuario, S extends IEntityService<E>> {
+
+    final static Logger logger = LoggerFactory.getLogger(UsuarioRestController.class);
     @Autowired
     private S service;
 
